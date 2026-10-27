@@ -1,7 +1,7 @@
 'use strict';
 // The direct Windows installer. Leave url empty to show only the Microsoft Store option.
 const DIRECT = {
-  url: 'https://github.com/connortracy020-oss/lecture-desk/releases/download/v0.5.1/Lecture-Desk-0.5.1-Setup.exe',
+  url: 'https://github.com/lecturedesk/lecturedesk.github.io/releases/download/v0.5.1/Lecture-Desk-0.5.1-Setup.exe',
   version: '0.5.1',
   sizeMB: 585,
   sha256: '42d7f88ebd153cc8c05f1fde8f86e672357ac0951972088a2688bdb6c051af9f'
