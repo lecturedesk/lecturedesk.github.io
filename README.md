@@ -1,9 +1,9 @@
 # Lecture Desk website
 
-The download page for [Lecture Desk](https://lecturedesk.github.io/), a free app for Windows (with a Mac preview) that records lectures and turns them into study notes with AI that runs on your own laptop.
+The [Lecture Desk website](https://lecturedesk.github.io/) links Windows users to the Microsoft Store and accepts email signups for the Mac launch through Google Forms.
 
-- `index.html`, `styles.css`, `site.js`: the page. Plain HTML, CSS and JavaScript with no build step.
-- `privacy.html`: generated from the privacy notice shipped in the app (`node build-privacy.cjs <PRIVACY.md>`), with the Mac differences from `privacy-mac.md` added before the contact section.
-- After changing `styles.css` or `site.js`, bump the `?v=` on their links in `index.html` (and set `ASSET_VERSION` when rebuilding `privacy.html`) so browsers fetch the new copy instead of a cached one.
-- `media/launch.mp4`: the full 94-second launch video (1600 px, 30 fps) that plays in the hero. `img/`: icons and the share image.
-- The Windows installer is attached to each [release](https://github.com/lecturedesk/lecturedesk.github.io/releases). To publish a new version, attach the new installer to a release, then update `DIRECT` at the top of `site.js`. The Mac DMG goes on the same release; its link, size and SHA-256 are written in the Mac card in `index.html`.
+- index.html, styles.css, and site.js are plain HTML, CSS, and JavaScript with no build step.
+- privacy.html is generated from the app privacy notice with node build-privacy.cjs <PRIVACY.md>. The generator adds the website notice about launch emails.
+- After changing styles.css or site.js, bump the query version on their links in index.html. Set ASSET_VERSION when rebuilding privacy.html.
+- media/lecture-desk-tour-075.mp4 is the 26-second overview from the Store 0.7.5 promo set (S10). media/source-inspector-075.mp4 is the source citations spotlight (S04). Each has a matching JPG poster.
+- Mac signup responses are private to the form owner and available in the Responses tab of Google Forms.

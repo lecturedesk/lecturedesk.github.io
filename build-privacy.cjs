@@ -1,11 +1,7 @@
 // Builds privacy.html from the privacy notice packaged in the released app, so the hosted
 // notice always matches what ships. Usage: node build-privacy.cjs <path to PRIVACY.md>
-// privacy-mac.md (how the Mac preview differs) goes in just before the contact section.
 const fs = require('fs'), path = require('path');
-const mac = fs.readFileSync(path.join(__dirname, 'privacy-mac.md'), 'utf8').replace(/\r\n/g, '\n').trim();
-const source = fs.readFileSync(process.argv[2] || path.join(__dirname, '..', 'installer', 'win-unpacked', 'resources', 'PRIVACY.md'), 'utf8').replace(/\r\n/g, '\n')
-  .replace(/\n## Contact\b/, () => '\n' + mac + '\n\n## Contact');
-if (!source.includes(mac)) throw new Error('No contact section to put the Mac notes before');
+const source = fs.readFileSync(process.argv[2] || path.join(__dirname, '..', 'installer', 'win-unpacked', 'resources', 'PRIVACY.md'), 'utf8').replace(/\r\n/g, '\n');
 const escape = text => text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const inline = text => escape(text)
   .replace(/`([^`]+)`/g, '<code>$1</code>')
@@ -42,6 +38,8 @@ const html = `<!doctype html>
 <h1>${inline(title)}</h1>
 ${updated ? `<p class="updated">${inline(updated)}</p>` : ''}
 ${out.join('\n')}
+<h2>Website launch notifications</h2>
+<p>If you sign up on this site, your email address is stored in Google Forms and used by the publisher to notify you when that version is available.</p>
 </main>
 <footer class="footer"><div class="wrap footer-inner"><a class="brand" href="index.html"><picture><source srcset="img/icon-light-512.png" media="(prefers-color-scheme: dark)"><img src="img/icon-512.png" alt="" width="24" height="24"></picture>Lecture Desk</a><nav aria-label="Footer"><a href="index.html">Home</a><a href="index.html#download">Download</a></nav></div></footer>
 </body>
